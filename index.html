@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050814">
+<meta name="description" content="Hirgal — learn technology, explore AI, build real projects, and discover opportunities.">
+<title>HIRGAL — Build What's Next</title>
+<style>
+:root{--bg:#050814;--panel:rgba(14,22,44,.72);--text:#f5f7ff;--muted:#a3aec9;--cyan:#55f5e5;--blue:#6585ff;--violet:#b26bff;--line:rgba(174,194,255,.17)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse at 18% 13%,rgba(35,90,180,.24),transparent 38%),radial-gradient(ellipse at 85% 34%,rgba(120,52,210,.18),transparent 35%),radial-gradient(ellipse at 50% 100%,rgba(0,170,180,.11),transparent 42%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.16;background-image:linear-gradient(rgba(115,145,220,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(115,145,220,.14) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 42px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(5,8,20,.68);backdrop-filter:blur(18px);border-bottom:1px solid rgba(174,194,255,.09)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.19em;font-size:17px}
+.logo{height:40px;width:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,var(--cyan),#7b8aff 62%,var(--violet));color:#07101b;font-weight:1000;font-size:18px;box-shadow:0 0 28px rgba(85,245,229,.22);transform:rotate(-5deg)}
+.navright{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:13px}
+.navright a:not(.navcta):hover{color:var(--cyan)}
+.navcta{padding:10px 15px;border:1px solid rgba(85,245,229,.38);border-radius:11px;color:var(--cyan);font-weight:800}
+.hero{min-height:690px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;padding:66px 0 82px;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+.live-dot{height:7px;width:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 13px var(--cyan);animation:pulse 1.5s infinite}
+h1{font-size:clamp(52px,7.5vw,92px);line-height:.96;letter-spacing:-.075em;margin:23px 0 25px;font-weight:900}
+.grad{background:linear-gradient(100deg,#fff 4%,#b5fff8 37%,#7c91ff 68%,#d5a0ff);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:gradientFlow 7s ease infinite}
+.hero-copy>p{max-width:530px;color:var(--muted);font-size:17px;line-height:1.85;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 19px;border-radius:14px;font-size:14px;font-weight:850;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;top:-80%;left:-35%;height:260%;width:24%;transform:rotate(25deg);background:rgba(255,255,255,.26);transition:left .55s}
+.btn:hover:after{left:130%}.btn:hover{transform:translateY(-4px)}
+.primary{background:linear-gradient(115deg,var(--cyan),#a4fff4);color:#07101b;box-shadow:0 10px 35px rgba(85,245,229,.18)}
+.primary:hover{box-shadow:0 15px 45px rgba(85,245,229,.31)}
+.secondary{border:1px solid var(--line);background:rgba(255,255,255,.035);color:#e5eaff}
+.secondary:hover{border-color:rgba(85,245,229,.5)}
+.mini-proof{display:flex;align-items:center;gap:12px;margin-top:27px;color:#7e8aa9;font-size:12px}
+.mini-proof .line{height:1px;width:35px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.scene{height:490px;position:relative;display:grid;place-items:center;perspective:1100px;isolation:isolate}
+.scene-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(74,91,255,.22);filter:blur(70px);animation:glow 6s ease-in-out infinite alternate}
+.orbit{position:absolute;border:1px solid rgba(114,155,255,.22);border-radius:50%;transform-style:preserve-3d}
+.orbit.one{width:410px;height:170px;transform:rotate(-27deg) rotateX(64deg);animation:orbitSpin 20s linear infinite}
+.orbit.two{width:360px;height:360px;transform:rotateX(68deg) rotateZ(20deg);border-color:rgba(85,245,229,.22);animation:orbitSpin 26s linear infinite reverse}
+.orbit.three{width:270px;height:270px;transform:rotateY(68deg) rotateZ(-22deg);border-style:dashed;border-color:rgba(178,107,255,.28);animation:orbitSpin 32s linear infinite}
+.orb{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px var(--cyan);top:49%;left:9%}
+.orbit.two .orb{background:var(--violet);box-shadow:0 0 20px var(--violet);left:78%;top:12%}
+.core{position:relative;width:205px;height:225px;transform-style:preserve-3d;animation:floatCore 5s ease-in-out infinite;filter:drop-shadow(0 30px 50px rgba(65,94,255,.23))}
+.core-face{position:absolute;inset:0;display:grid;place-items:center;clip-path:polygon(50% 0%,94% 24%,94% 76%,50% 100%,6% 76%,6% 24%);background:linear-gradient(145deg,rgba(88,245,229,.2),rgba(78,105,255,.14) 45%,rgba(178,107,255,.22));border:1px solid rgba(133,245,255,.8);backdrop-filter:blur(7px)}
+.core-face:before{content:"";position:absolute;inset:9px;clip-path:inherit;border:1px solid rgba(185,255,255,.58);background:linear-gradient(135deg,rgba(255,255,255,.12),transparent 60%)}
+.core-inner{position:relative;z-index:2;text-align:center;transform:translateZ(35px)}
+.core-symbol{font-size:57px;font-weight:950;letter-spacing:-.13em;line-height:1;background:linear-gradient(135deg,#fff,var(--cyan),#9d9aff);-webkit-background-clip:text;color:transparent;text-shadow:0 0 35px rgba(85,245,229,.15)}
+.core-label{font-size:10px;letter-spacing:.35em;color:#d9fffb;font-weight:900;margin-top:14px}
+.float-card{position:absolute;z-index:5;min-width:154px;padding:13px 15px;border:1px solid rgba(171,197,255,.23);border-radius:16px;background:linear-gradient(135deg,rgba(25,39,72,.86),rgba(10,17,37,.78));backdrop-filter:blur(16px);box-shadow:0 15px 45px rgba(0,0,0,.2);animation:cardFloat 5s ease-in-out infinite;transform-style:preserve-3d}
+.float-card .small{font-size:10px;color:#8293b8;letter-spacing:.12em;text-transform:uppercase}
+.float-card strong{display:block;font-size:13px;margin-top:3px}
+.float-card .emoji{font-size:20px;margin-right:8px;filter:drop-shadow(0 0 10px rgba(85,245,229,.25))}
+.card-ai{top:58px;right:2px;animation-delay:-1.5s;transform:rotateY(-12deg) rotateX(5deg)}
+.card-code{bottom:78px;left:-4px;animation-delay:-3s;transform:rotateY(13deg) rotateX(-4deg)}
+.card-op{right:1px;bottom:58px;animation-delay:-2s;transform:rotateY(-9deg)}
+.scene-caption{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#657493;font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+.scrollhint{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:#667493;display:flex;align-items:center;gap:9px}
+.scrollhint span{display:inline-block;width:20px;height:1px;background:var(--cyan)}
+.ticker{overflow:hidden;border-block:1px solid var(--line);background:rgba(255,255,255,.018);padding:14px 0}
+.ticker-track{display:flex;width:max-content;animation:marquee 32s linear infinite;gap:28px;color:#8d9bb8;font-size:11px;font-weight:800;letter-spacing:.2em}
+.ticker-track b{color:var(--cyan);font-weight:500}
+.section{padding:100px 0}
+.section-head{max-width:680px;margin:0 auto 44px;text-align:center}
+.section-head h2{font-size:clamp(32px,5vw,54px);line-height:1.08;letter-spacing:-.055em;margin:16px 0}
+.section-head p{color:var(--muted);margin:0;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;perspective:1000px}
+.card{position:relative;overflow:hidden;min-height:250px;padding:25px 22px;border-radius:21px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,31,61,.78),rgba(9,14,30,.86));transform-style:preserve-3d;transition:transform .25s ease,border-color .25s,box-shadow .25s;will-change:transform}
+.card:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:var(--cardglow,rgba(85,245,229,.12));filter:blur(50px);right:-90px;top:-90px;pointer-events:none}
+.card:hover{border-color:rgba(85,245,229,.45);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.card:nth-child(2){--cardglow:rgba(101,133,255,.19)}.card:nth-child(3){--cardglow:rgba(178,107,255,.18)}.card:nth-child(4){--cardglow:rgba(85,245,229,.13)}
+.card-icon{height:53px;width:53px;display:grid;place-items:center;border-radius:16px;background:rgba(85,245,229,.09);border:1px solid rgba(85,245,229,.2);font-size:25px;margin-bottom:28px;transform:translateZ(28px);box-shadow:0 7px 25px rgba(0,0,0,.14)}
+.card h3{font-size:18px;margin:0 0 9px;transform:translateZ(20px)}
+.card p{color:var(--muted);font-size:13px;margin:0;transform:translateZ(15px)}
+.card-number{position:absolute;right:20px;top:20px;color:#566382;font-size:11px;letter-spacing:.12em}
+.manifesto{position:relative;overflow:hidden;text-align:center;padding:52px 24px;border:1px solid rgba(119,151,255,.2);border-radius:28px;background:linear-gradient(120deg,rgba(29,64,89,.32),rgba(57,35,91,.29));}
+.manifesto:before,.manifesto:after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(65px);pointer-events:none}
+.manifesto:before{background:rgba(85,245,229,.12);left:-90px;top:-110px}.manifesto:after{background:rgba(178,107,255,.13);right:-90px;bottom:-130px}
+.manifesto h2{position:relative;font-size:clamp(28px,5vw,48px);letter-spacing:.01em;margin:0;background:linear-gradient(90deg,#fff,var(--cyan),#b5a0ff);-webkit-background-clip:text;color:transparent}
+.manifesto p{position:relative;color:var(--muted);margin:12px auto 0;max-width:560px;font-size:14px}
+.join{padding:0 0 100px}
+.joinbox{position:relative;overflow:hidden;border:1px solid rgba(85,245,229,.24);border-radius:30px;padding:clamp(30px,6vw,66px) 24px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(75,106,255,.19),transparent 55%),linear-gradient(145deg,rgba(15,31,54,.95),rgba(15,13,37,.96))}
+.joinbox:before{content:"";position:absolute;width:300px;height:300px;left:50%;top:-240px;transform:translateX(-50%);border-radius:50%;border:1px solid rgba(85,245,229,.2);box-shadow:0 0 0 28px rgba(85,245,229,.025),0 0 0 58px rgba(85,245,229,.02)}
+.joinbox h2{position:relative;font-size:clamp(31px,5vw,55px);line-height:1.08;letter-spacing:-.055em;margin:16px auto;max-width:760px}
+.joinbox p{position:relative;color:var(--muted);max-width:590px;margin:0 auto;font-size:15px}
+.joinbox .actions{position:relative;justify-content:center}
+footer{border-top:1px solid var(--line);padding:25px 0 32px;color:#72809f;font-size:12px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.foot strong{color:#b8c7e5;letter-spacing:.15em}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.72)}}
+@keyframes gradientFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes glow{from{transform:scale(.85);opacity:.55}to{transform:scale(1.18);opacity:1}}
+@keyframes orbitSpin{from{rotate:0deg}to{rotate:360deg}}
+@keyframes floatCore{0%,100%{transform:translateY(0) rotateY(-8deg) rotateX(5deg)}50%{transform:translateY(-16px) rotateY(8deg) rotateX(-4deg)}}
+@keyframes cardFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:62px;gap:0;text-align:center}.hero-copy>p{margin:auto}.actions{justify-content:center}.mini-proof{justify-content:center}.scene{height:440px;margin-top:10px}.cards{grid-template-columns:repeat(2,1fr)}.navright>a:not(.navcta){display:none}}
+@media(max-width:520px){.wrap{width:calc(100% - 30px)}nav{height:67px}.brand{font-size:14px}.logo{height:35px;width:35px}.navcta{font-size:11px;padding:8px 10px}.hero{padding:52px 0 48px;min-height:0}h1{font-size:clamp(49px,15vw,72px)}.hero-copy>p{font-size:15px}.btn{width:100%}.actions{width:100%}.scene{height:350px;transform:scale(.88);margin:-2px -10px 0}.orbit.one{width:340px}.orbit.two{width:300px;height:300px}.orbit.three{width:230px;height:230px}.core{transform:scale(.82)}.float-card{min-width:135px;padding:10px 11px}.card-ai{top:29px;right:-4px}.card-code{bottom:53px;left:-4px}.card-op{bottom:39px;right:-5px}.section{padding:70px 0}.cards{grid-template-columns:1fr;gap:12px}.card{min-height:0;padding:22px}.card-icon{margin-bottom:18px}.section-head{margin-bottom:30px}.manifesto{padding:40px 18px}.join{padding-bottom:70px}.foot{justify-content:center;text-align:center}.scene-caption{font-size:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#" aria-label="Hirgal home"><span class="logo">&lt;/&gt;</span><span>HIRGAL</span></a>
+    <div class="navright"><a href="#discover">Discover</a><a href="#mission">Our mission</a><a class="navcta" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">Join community ↗</a></div>
+  </nav>
+</header>
+<main>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="live-dot"></span> The future belongs to builders</div>
+      <h1>Don't just<br><span class="grad">watch tech.</span><br>Build it.</h1>
+      <p>Explore AI. Learn to code. Build real projects. Discover opportunities that move your future forward — with a community growing alongside you.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">✈ Join the Hirgal community <span>↗</span></a>
+        <a class="btn secondary" href="#discover">Explore what we do <span>↓</span></a>
+      </div>
+      <div class="mini-proof"><span class="line"></span> LEARN WITH PURPOSE <span>·</span> BUILD WITH CONFIDENCE <span>·</span> GROW TOGETHER</div>
+    </div>
+    <div class="scene" aria-label="Animated 3D technology illustration">
+      <div class="scene-glow"></div>
+      <div class="orbit one"><span class="orb"></span></div>
+      <div class="orbit two"><span class="orb"></span></div>
+      <div class="orbit three"></div>
+      <div class="core"><div class="core-face"><div class="core-inner"><div class="core-symbol">&lt;/&gt;</div><div class="core-label">HIRGAL LAB</div></div></div></div>
+      <div class="float-card card-ai"><span class="emoji">✳</span><span class="small">Explore</span><strong>Artificial Intelligence</strong></div>
+      <div class="float-card card-code"><span class="emoji">⌘</span><span class="small">Create</span><strong>Code something real</strong></div>
+      <div class="float-card card-op"><span class="emoji">↗</span><span class="small">Discover</span><strong>New opportunities</strong></div>
+      <div class="scene-caption">Ideas into reality · 3D concept</div>
+    </div>
+    <div class="scrollhint"><span></span> SCROLL TO EXPLORE <span></span></div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>ARTIFICIAL INTELLIGENCE <b>✳</b></span><span>CODING <b>✳</b></span><span>REAL PROJECTS <b>✳</b></span><span>CAREER GROWTH <b>✳</b></span><span>OPPORTUNITIES <b>✳</b></span><span>BUILD THE FUTURE <b>✳</b></span>
+    <span>ARTIFICIAL INTELLIGENCE <b>✳</b></span><span>CODING <b>✳</b></span><span>REAL PROJECTS <b>✳</b></span><span>CAREER GROWTH <b>✳</b></span><span>OPPORTUNITIES <b>✳</b></span><span>BUILD THE FUTURE <b>✳</b></span>
+  </div></div>
+
+  <section class="section wrap" id="discover">
+    <div class="section-head reveal">
+      <div class="eyebrow">Your next move starts here</div>
+      <h2>Knowledge is good.<br><span class="grad">What you build is better.</span></h2>
+      <p>Hirgal helps turn curiosity into practical skills, smarter choices, and action you can be proud of.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><span class="card-number">01 / LEARN</span><div class="card-icon">⌘</div><h3>Learn to code</h3><p>Understand programming, tools, and concepts with practical guidance for your next step.</p></article>
+      <article class="card reveal"><span class="card-number">02 / EXPLORE</span><div class="card-icon">✳</div><h3>Discover AI</h3><p>Find useful AI tools and learn how to apply new technology to real problems.</p></article>
+      <article class="card reveal"><span class="card-number">03 / DISCOVER</span><div class="card-icon">↗</div><h3>Find opportunities</h3><p>Explore scholarships, internships, hackathons, courses, and tech events worth knowing about.</p></article>
+      <article class="card reveal"><span class="card-number">04 / BUILD</span><div class="card-icon">⚒</div><h3>Build real things</h3><p>Get project ideas, development insights, and encouragement to create—not just consume.</p></article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="mission">
+    <div class="manifesto reveal">
+      <div class="eyebrow">The Hirgal mindset</div>
+      <h2>Baro. Faham. Dhis.</h2>
+      <p>Learn with purpose. Understand your choices. Build something meaningful. Your background doesn't define how far your curiosity can take you.</p>
+    </div>
+  </section>
+
+  <section class="join wrap">
+    <div class="joinbox reveal">
+      <div class="eyebrow"><span class="live-dot"></span> Your people are here</div>
+      <h2>Your next big idea could start with one click.</h2>
+      <p>Join the Hirgal Telegram community for shared opportunities, useful resources, updates, and conversations with people who want to keep learning and building.</p>
+      <div class="actions"><a class="btn primary" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">✈ Join Hirgal on Telegram <span>↗</span></a></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span><strong>HIRGAL</strong> · Learn. Build. Grow.</span><span>Made for curious minds and future builders.</span><span>© <span id="year"></span> Hirgal</span></div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+// Scroll reveal
+const revealItems=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.14});
+ revealItems.forEach(el=>observer.observe(el));
+}else{revealItems.forEach(el=>el.classList.add('visible'))}
+// Gentle 3D tilt for feature cards; disabled on touch and reduced-motion devices.
+const finePointer=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(finePointer&&!reduceMotion){
+ document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('pointermove',e=>{
+   const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+   card.style.transform=`perspective(900px) rotateX(${(0.5-y)*7}deg) rotateY(${(x-0.5)*8}deg) translateY(-3px)`;
+  });
+  card.addEventListener('pointerleave',()=>{card.style.transform=''});
+ });
+}
+</script>
+</body>
+</html>
