@@ -51,8 +51,9 @@ h1{font-size:clamp(52px,7.5vw,92px);line-height:.96;letter-spacing:-.075em;margi
 .core-face{position:absolute;inset:0;display:grid;place-items:center;clip-path:polygon(50% 0%,94% 24%,94% 76%,50% 100%,6% 76%,6% 24%);background:linear-gradient(145deg,rgba(88,245,229,.2),rgba(78,105,255,.14) 45%,rgba(178,107,255,.22));border:1px solid rgba(133,245,255,.8);backdrop-filter:blur(7px)}
 .core-face:before{content:"";position:absolute;inset:9px;clip-path:inherit;border:1px solid rgba(185,255,255,.58);background:linear-gradient(135deg,rgba(255,255,255,.12),transparent 60%)}
 .core-inner{position:relative;z-index:2;text-align:center;transform:translateZ(35px)}
-.core-symbol{font-size:57px;font-weight:950;letter-spacing:-.13em;line-height:1;background:linear-gradient(135deg,#fff,var(--cyan),#9d9aff);-webkit-background-clip:text;color:transparent;text-shadow:0 0 35px rgba(85,245,229,.15)}
-.core-label{font-size:10px;letter-spacing:.35em;color:#d9fffb;font-weight:900;margin-top:14px}
+.core-symbol{display:block;width:138px;height:138px;object-fit:contain;object-position:center;margin:0 auto;border-radius:50%;clip-path:circle(50% at 50% 50%);background:transparent;filter:drop-shadow(0 0 22px rgba(85,245,229,.24))}
+.core-symbol-wrap{display:flex;align-items:center;justify-content:center;min-height:138px}
+.core-label{font-size:9px;letter-spacing:.28em;color:#d9fffb;font-weight:900;margin-top:4px}
 .float-card{position:absolute;z-index:5;min-width:154px;padding:13px 15px;border:1px solid rgba(171,197,255,.23);border-radius:16px;background:linear-gradient(135deg,rgba(25,39,72,.86),rgba(10,17,37,.78));backdrop-filter:blur(16px);box-shadow:0 15px 45px rgba(0,0,0,.2);animation:cardFloat 5s ease-in-out infinite;transform-style:preserve-3d}
 .float-card .small{font-size:10px;color:#8293b8;letter-spacing:.12em;text-transform:uppercase}
 .float-card strong{display:block;font-size:13px;margin-top:3px}
@@ -130,7 +131,7 @@ footer{border-top:1px solid var(--line);padding:25px 0 32px;color:#72809f;font-s
       <div class="orbit one"><span class="orb"></span></div>
       <div class="orbit two"><span class="orb"></span></div>
       <div class="orbit three"></div>
-      <div class="core"><div class="core-face"><div class="core-inner"><div class="core-symbol">&lt;/&gt;</div><div class="core-label">HIRGAL LAB</div></div></div></div>
+      <div class="core"><div class="core-face"><div class="core-inner"><div class="core-symbol-wrap"><img class="core-symbol" src="/hirgal-logo.png" alt="Hirgal logo"></div><div class="core-label">HIRGAL LAB</div></div></div></div>
       <div class="float-card card-ai"><span class="emoji">✳</span><span class="small">Explore</span><strong>Artificial Intelligence</strong></div>
       <div class="float-card card-code"><span class="emoji">⌘</span><span class="small">Create</span><strong>Code something real</strong></div>
       <div class="float-card card-op"><span class="emoji">↗</span><span class="small">Discover</span><strong>New opportunities</strong></div>
