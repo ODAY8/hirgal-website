@@ -6,6 +6,8 @@
 <meta name="theme-color" content="#050814">
 <meta name="description" content="Hirgal — learn technology, explore AI, build real projects, and discover opportunities.">
 <title>HIRGAL — Build What's Next</title>
+<link rel="icon" type="image/png" href="/hirgal-logo.png">
+<link rel="apple-touch-icon" href="/hirgal-logo.png">
 <style>
 :root{--bg:#050814;--panel:rgba(14,22,44,.72);--text:#f5f7ff;--muted:#a3aec9;--cyan:#55f5e5;--blue:#6585ff;--violet:#b26bff;--line:rgba(174,194,255,.17)}
 *{box-sizing:border-box}
@@ -17,7 +19,7 @@ a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 42px));m
 header{position:sticky;top:0;z-index:20;background:rgba(5,8,20,.68);backdrop-filter:blur(18px);border-bottom:1px solid rgba(174,194,255,.09)}
 nav{height:76px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.19em;font-size:17px}
-.logo{height:40px;width:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,var(--cyan),#7b8aff 62%,var(--violet));color:#07101b;font-weight:1000;font-size:18px;box-shadow:0 0 28px rgba(85,245,229,.22);transform:rotate(-5deg)}
+.logo{height:40px;width:40px;display:block;object-fit:contain;border-radius:12px;filter:drop-shadow(0 0 12px rgba(85,245,229,.22))}
 .navright{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:13px}
 .navright a:not(.navcta):hover{color:var(--cyan)}
 .navcta{padding:10px 15px;border:1px solid rgba(85,245,229,.38);border-radius:11px;color:var(--cyan);font-weight:800}
@@ -107,8 +109,8 @@ footer{border-top:1px solid var(--line);padding:25px 0 32px;color:#72809f;font-s
 <body>
 <header>
   <nav class="wrap">
-    <a class="brand" href="#" aria-label="Hirgal home"><span class="logo">&lt;/&gt;</span><span>HIRGAL</span></a>
-    <div class="navright"><a href="#discover">Discover</a><a href="#mission">Our mission</a><a class="navcta" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">Join community ↗</a></div>
+    <a class="brand" href="#" aria-label="Hirgal home"><img class="logo" src="/hirgal-logo.png" alt="Hirgal logo"><span>HIRGAL</span></a>
+    <div class="navright"><a href="#discover">Discover</a><a href="#mission">Our mission</a><a href="https://discord.gg/dVv3MSxwB" target="_blank" rel="noopener noreferrer">Discord</a><a class="navcta" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">Join community ↗</a></div>
   </nav>
 </header>
 <main>
@@ -169,11 +171,11 @@ footer{border-top:1px solid var(--line);padding:25px 0 32px;color:#72809f;font-s
       <div class="eyebrow"><span class="live-dot"></span> Your people are here</div>
       <h2>Your next big idea could start with one click.</h2>
       <p>Join the Hirgal Telegram community for shared opportunities, useful resources, updates, and conversations with people who want to keep learning and building.</p>
-      <div class="actions"><a class="btn primary" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">✈ Join Hirgal on Telegram <span>↗</span></a></div>
+      <div class="actions"><a class="btn primary" href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">✈ Join Hirgal on Telegram <span>↗</span></a><a class="btn secondary" href="https://discord.gg/dVv3MSxwB" target="_blank" rel="noopener noreferrer">Join Hirgal on Discord <span>↗</span></a></div>
     </div>
   </section>
 </main>
-<footer><div class="wrap foot"><span><strong>HIRGAL</strong> · Learn. Build. Grow.</span><span>Made for curious minds and future builders.</span><span>© <span id="year"></span> Hirgal</span></div></footer>
+<footer><div class="wrap foot"><span><strong>HIRGAL</strong> · Learn. Build. Grow.</span><span><a href="https://t.me/+8xw8IMedB8czZDdl" target="_blank" rel="noopener noreferrer">Telegram</a> · <a href="https://discord.gg/dVv3MSxwB" target="_blank" rel="noopener noreferrer">Discord</a></span><span>Made for curious minds and future builders. · © <span id="year"></span> Hirgal</span></div></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 // Scroll reveal
